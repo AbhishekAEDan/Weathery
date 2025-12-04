@@ -22,15 +22,13 @@
 - 🤗 Feels Like temperature and **Pressure**  
 - 💧 **Humidity** with dynamic progress bar  
 - 🌧️ Precipitation information  
-- 📱 Responsive design with **liquid glass styling**  
 - ⚡ Modern UI with easy-to-read layout  
 
 ---
 
 ## 🎨 Demo
 
-![Weathery Screenshot](demo.png)  
-*Example interface showing current weather, humidity, and precipitation.*
+![Weathery Screenshot](demo.png)
 ---
 
 ## 🛠️ Installation on Development Environment
