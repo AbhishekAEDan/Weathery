@@ -38,5 +38,10 @@
 1️⃣ **Clone the repository**
 
 ```bash
-git clone https://github.com/<your-username>/weathery.git
+git clone https://github.com/AbhishekAEDan/Weathery
 cd weathery
+
+2️⃣ Create a virtual environment
+
+```bash
+python -m venv venv
