@@ -1,0 +1,405 @@
+/* Body styling with dark gradient */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+
+    /* Liquid Glass Gradient */
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 255, 255, 0.08),
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(255, 255, 255, 0.05),
+        transparent 40%
+    ),
+    linear-gradient(to bottom, #0c1322, #101a2c, #0d1528);
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}
+
+
+.app-header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.app-name {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #27cfee; /* cyan color for app name */
+    margin: 0;
+}
+
+.app-slogan {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.527); /* slightly dimmed white */
+    margin: 20px 0 0 0;
+    font-weight: 200;
+}
+
+
+/* Container for search bar */
+.container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.search-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px 15px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+    width: auto;      /* STOP stretching */
+    height: auto;     /* STOP extending vertically */
+}
+
+
+
+/* Form styling */
+form {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    padding: 12px;
+    width: 250px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    outline: none;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+
+button {
+    padding: 12px 18px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(39, 207, 238, 0.25);
+    border: 1px solid rgba(39, 207, 238, 0.4);
+    color: #27cfee;
+    font-weight: bold;
+    font-size: 15px;
+
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+button:hover {
+    background: rgba(39, 207, 238, 0.4);
+    border-color: rgba(39, 207, 238, 0.7);
+    color: #ffffff;
+}
+
+
+/* Weather info box */
+.weather-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.error {
+    color: #ff4c4c;
+    margin-top: 20px;
+}
+
+.cw-wrapper {
+    width: 100%;
+    max-width: 1000px;  /* optional: keep everything centered and not too wide */
+    margin: 0 auto;      /* center the wrapper */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;           /* spacing between location box and weather row */
+}
+
+.location-box {
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 18px 25px;
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: auto;
+    display: inline-block;
+    color: white; /* Make all text inside white */
+}
+
+.location-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+    color: white; /* override any previous cyan */
+}
+
+.location-updated {
+    margin-top: 6px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.5px;
+}
+
+.current-weather-box {
+    flex: 2; /* take more width than right column */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* evenly space top, middle, bottom sections */
+    padding: 28px 25px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.cw-top {
+    display: flex;               /* horizontal layout */
+    justify-content: space-between; /* left + right */
+    align-items: center;         /* vertical align center */
+}
+
+.cw-left h2 {
+    font-size: 1rem;            /* smaller than condition */
+    color: #c1cad7;             /* light grey */
+    margin: 0;
+    font-weight: 100;
+}
+
+.cw-left .cw-condition {
+    font-size: 2.5rem;          /* slightly larger than title */
+    color: white;               /* bright white */
+    margin: 4px 0 0 0;
+    font-weight: 700;
+}
+
+
+.cw-right img {
+    width: 100px;
+    height: 100px;
+}
+
+.cw-temp {
+    display: flex;
+    justify-content: space-between; /* push left and right to edges */
+    margin-top: 12px;
+}
+
+.cw-temp-left, .cw-temp-right {
+    display: flex;
+    align-items: flex-end; /* aligns units to bottom of numbers */
+    gap: 10px; /* spacing between number and unit */
+    margin-right: 10px;
+}
+
+.cw-temp-num {
+    font-size: 4.5rem;       /* very large number */
+    font-weight: 700;
+    color: white;
+}
+
+.cw-temp-unit {
+    font-size: 1.5rem;       /* smaller unit */
+    font-weight: 100;        /* lighter */
+    margin-bottom: 20px;
+    color: white;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+    color: #27cfee; /* App name stays cyan */
+    letter-spacing: 2px;
+}
+
+.cw-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    gap: 12px; /* space between boxes */
+}
+
+.cw-detail-box {
+    flex: 1; /* both boxes take equal width */
+    background: rgba(255, 255, 255, 0.014);
+    border-radius: 14px;
+    padding: 12px 10px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+}
+
+.detail-title {
+    font-size: 1rem;
+    color: #c1cad7;  /* subtle grey for title */
+    margin: 0 0 6px 0;
+    font-weight: 200;
+}
+
+.detail-value {
+    font-size: 1.4rem;
+    color: white;
+    margin: 0;
+    font-weight: 700;
+}
+
+.cw-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: stretch; /* equal height */
+    margin-top: 20px;
+}
+
+/* Left Current Weather */
+.current-weather-box {
+    flex: 2; /* take more space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Right Column */
+.cw-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* space between humidity and precipitation */
+}
+
+/* Humidity Box (same as before) */
+.humidity-box {
+    padding: 18px 15px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.humidity-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.humidity-icon {
+    font-size: 1.5rem;
+}
+
+.humidity-title {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+    margin: 0;
+}
+
+.humidity-value {
+    font-size: 3.6rem;
+    color: white;
+    font-weight: 700;
+    margin: 12px 0 12px 0;
+}
+
+.humidity-bar {
+    width: 100%;
+    height: 14px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: auto;
+}
+
+.humidity-fill {
+    height: 100%;
+    background: #27cfee;
+    border-radius: 10px 0 0 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Precipitation Box */
+.precipitation-box {
+    padding: 18px 15px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    text-align: left;
+}
+
+.precipitation-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.precipitation-icon {
+    font-size: 1.5rem;
+}
+
+.precipitation-title {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+    margin: 0;
+}
+
+.precipitation-value {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.footer-box {
+    width: 100%;
+    max-width: 1000px;      /* same as location box wrapper */
+    margin: 20px auto 40px auto; /* center horizontally with spacing above/below */
+    padding: 15px 0px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.589);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+

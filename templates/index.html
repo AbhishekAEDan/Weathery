@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weathery</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="app-name">Weathery</h1>
+        <p class="app-slogan">Real-time weather information at your fingertips</p>
+    </header>
+
+    <div class="container">
+        <div class="search-box">
+            <form method="POST" style="display:flex; align-items:center; margin:0;">
+                <input type="text" name="city" placeholder="Enter location" required />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- Show an error only if weather exists AND has an error -->
+        {% if weather and weather.get('error') %}
+        <div class="glass weather-box" style="margin-top:16px;">
+            <p class="error">{{ weather.get('error') }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Show the location box only when weather is present and no error -->
+        {% if weather and not weather.get('error') %}
+
+        <!-- Wrapper for location + weather info -->
+        <div class="cw-wrapper">
+
+            <div class="glass location-box">
+                <p class="location-title">{{ weather.name }}, {{ weather.sys.country }}</p>
+                <p class="location-updated">Last updated: {{ updated }}</p>
+            </div>
+
+            <div class="cw-container">
+                <!-- Current Weather Box -->
+                <div class="glass current-weather-box">
+                    <div class="cw-top">
+                    <div class="cw-left">
+                        <h2>Current Weather</h2>
+                        <p class="cw-condition">{{ weather.weather[0].description | title }}</p>
+                    </div>
+                    <div class="cw-right">
+                        <img src="http://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@2x.png" alt="icon">
+                    </div>
+                    </div>
+
+                    <!-- Temperatures -->
+                    <div class="cw-temp">
+                    <div class="cw-temp-left">
+                        <span class="cw-temp-num">{{ temp_c }}</span><span class="cw-temp-unit">°C</span>
+                    </div>
+                    <div class="cw-temp-right">
+                        <span class="cw-temp-num">{{ temp_f }}</span><span class="cw-temp-unit">°F</span>
+                    </div>
+                    </div>
+
+                    <!-- Feels Like & Pressure -->
+                    <div class="cw-details">
+                    <div class="cw-detail-box">
+                        <p class="detail-title">Feels Like</p>
+                        <p class="detail-value">{{ weather.main.feels_like | round }}°C</p>
+                    </div>
+                    <div class="cw-detail-box">
+                        <p class="detail-title">Pressure</p>
+                        <p class="detail-value">{{ weather.main.pressure }} hPa</p>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Humidity + Precipitation -->
+                <div class="cw-right-column">
+                    <!-- Humidity Box -->
+                    <div class="glass humidity-box">
+                    <div class="humidity-title-row">
+                        <span class="humidity-icon">💧</span>
+                        <p class="humidity-title">Humidity</p>
+                    </div>
+                    <p class="humidity-value">{{ weather.main.humidity }}%</p>
+                    <div class="humidity-bar">
+                        <div class="humidity-fill" style="width: {{ weather.main.humidity }}{{ '%' }};"></div>
+                    </div>
+                    </div>
+
+                    <!-- Precipitation Box -->
+                    <div class="glass precipitation-box">
+                    <div class="precipitation-title-row">
+                        <span class="precipitation-icon">🌧️</span>
+                        <p class="precipitation-title">Precipitation</p>
+                    </div>
+                    <p class="precipitation-value">{{ weather.rain['1h'] if weather.rain else 0 }} mm</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+<footer class="footer-box">
+    <p>Weather data provided by OpenWeatherMap API</p>
+    <p>© 2025 Weather Glass. All Rights Reserved.</p>
+</footer>
+
+</html>
