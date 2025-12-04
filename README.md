@@ -29,12 +29,8 @@
 
 ## 🎨 Demo
 
-![Weathery Screenshot](screenshots/demo.png)  
+![Weathery Screenshot](demo.png)  
 *Example interface showing current weather, humidity, and precipitation.*
-
-*Optional GIF demo:*  
-![Weathery Demo](screenshots/demo.gif)
-
 ---
 
 ## 🛠️ Installation
