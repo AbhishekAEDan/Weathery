@@ -33,15 +33,45 @@
 *Example interface showing current weather, humidity, and precipitation.*
 ---
 
-## 🛠️ Installation
+## 🛠️ Installation on Development Environment
 
 1️⃣ **Clone the repository**
 
 ```bash
 git clone https://github.com/AbhishekAEDan/Weathery
 cd weathery
+```
 
 2️⃣ Create a virtual environment
 
 ```bash
 python -m venv venv
+```
+
+3️⃣ Activate the virtual environment
+- Windows:
+  ```bash
+  venv\Scripts\activate
+  ```
+- macOS/Linux:
+  ```bash
+  source venv/bin/activate
+  ```
+
+4️⃣ Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+5️⃣ Set up environment variables
+Create a .env file in the root directory:
+```bash
+OPENWEATHER_API_KEY=your_openweathermap_api_key
+```
+
+## 🚀 Usage
+
+Run the Flask app:
+```bash
+python app.py
+```
